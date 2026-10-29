@@ -1,0 +1,5 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recuperar acceso · Huellita</title>@vite(['resources/css/app.css','resources/js/app.js'])</head><body class="huellita login-page"><main class="login-card"><a class="brand" href="{{ route('home') }}"><span class="brand-icon">✚</span> huellita.</a><h1>Recupera tu acceso.</h1><p>Te enviaremos un enlace al correo registrado.</p>@if(session('status'))<div class="notice">{{ session('status') }}</div>@endif @if($errors->any())<div class="error-box">{{ $errors->first() }}</div>@endif<form method="POST" action="{{ route('password.email') }}">@csrf
+
+<x-huellita-field name="email" label="Correo electrónico" type="email" required :value="request('email')" autocomplete="email"/>
+
+<button class="button full">Enviar enlace de recuperación</button></form><a class="text-link" href="{{ route('login') }}">← Volver al inicio de sesión</a></main></body></html>
